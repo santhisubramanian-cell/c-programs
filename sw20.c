@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int role, time;
+    scanf("%d", &role);
+    scanf("%d", &time);
+    switch (role) {
+        case 1:
+            printf("Full Access\n");
+            break;
+        case 2:
+            if (time >= 9 && time <= 18) {
+                printf("Limited Access\n");
+            } else {
+                printf("Access Denied\n");
+            }
+            break;
+
+        default:
+            break;
+    }
+
+    return 0;
+}
