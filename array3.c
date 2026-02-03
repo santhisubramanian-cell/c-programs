@@ -1,24 +1,32 @@
 #include <stdio.h>
-
 int main() {
-    int size;
-    scanf("%d", &size);
-    int is_increasing = 1;
-    int arr[size];
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-    for (int j = 0; j < size - 1; j++) {
-        if (arr[j] > arr[j+1]) {
-            is_increasing = 0;
-            break; 
+    int r, c;
+    scanf("%d %d", &r, &c);
+    int a[r][c];
+    int max = 0, index = 0;
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            scanf("%d", &a[i][j]);
         }
     }
-    if (is_increasing) {
-        printf("Yes\n");
-    } else {
-        printf("No\n");
+    for (int i = 0; i < r; i++) {
+        int count = 0;
+        for (int j = 0; j < c; j++) {
+            int flag = 1;
+            for (int k = 0; k < j; k++) {
+                if (a[i][j] == a[i][k]) {
+                    flag = 0;
+                    break;
+                }
+            }
+            if (flag == 1)
+                count++;
+        }
+        if (count > max) {
+            max = count;
+            index = i;
+        }
     }
-
+    printf("%d", index);
     return 0;
 }
