@@ -1,16 +1,23 @@
 #include<stdio.h>
-int main(){
-    int n;
-    scanf("%d",&n);
-    int count=0;
-    for(n;n!=0;n/=10){
-        int digit = n%10;
-        if(digit%2==0){
-            count+=1;
+int perfect(int num){
+    int sum=0;
+    for(int i=1;i<=num/2;i++){
+        if(num%i==0){
+            sum=sum+i;
         }
-        
     }
-    printf("%d",count);
-    
+    return sum;
+}
+int main(){
+    int num;
+    scanf("%d",&num);
+    int temp=num;
+    int res=perfect(num);
+    if(temp==res){
+        printf("perfect number");
+    }
+    else{
+        printf("not perfect number");
+    }
     return 0;
 }
