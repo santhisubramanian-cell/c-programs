@@ -6,6 +6,7 @@ int main(){
     for(int i = 0; i<size;i++){
         scanf("%d", &arr[i]);
     }
+    
     int left = arr[0];
     int right =arr[size - 1] ;
     while(left < right){
